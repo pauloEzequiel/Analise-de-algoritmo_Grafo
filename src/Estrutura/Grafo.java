@@ -8,7 +8,7 @@ public class Grafo<K extends Comparable<? super K>, V> {
 	private double MatAdj[][];
     private LinkedList<Vertice<K, V>> vertice;
 	private int nVertice;
-	int Qtd_Max_Vertice = 20;
+	int Qtd_Max_Vertice = 1500;
 	private Stack<Integer> Pilha;
 
 	public Grafo() {
@@ -39,7 +39,7 @@ public class Grafo<K extends Comparable<? super K>, V> {
 
 			if (cont == 0) {
 				vertice.addLast(new Vertice<K, V>(label, valor, nVertice++));
-				System.out.println("Realizado com sucesso");
+				//System.out.println("Realizado com sucesso");
 			} else
 				System.out.println("Falha, Chave duplicada");
 		}
