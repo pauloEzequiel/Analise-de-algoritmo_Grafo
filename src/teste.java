@@ -12,22 +12,42 @@ public class teste {
 	public static void main(String[] args) {
 		Grafo<Integer, String> g = new Grafo<Integer, String>();
 
-		g.AddVertice(0, "Aracaju");
+		/*g.AddVertice(0, "Aracaju");
 		g.AddVertice(1, "Boquim");
 		g.AddVertice(2, "Estancia");
 		g.AddVertice(3, "Socorro");
 		g.AddVertice(4, "Lagarto");
-
+		
 		g.AddAresta(0, 4, 2);
 		g.AddAresta(4, 1, 3);
 		g.AddAresta(4, 2, 5);
 		g.AddAresta(4, 3, 1);
 		g.AddAresta(1, 2, 2);
 		g.AddAresta(2, 3, 4);
+		*/
+
+		g.AddVertice(0, "t");
+		g.AddVertice(1, "u");
+		g.AddVertice(2, "x");
+		g.AddVertice(3, "v");
+		g.AddVertice(4, "y");
+		
+		g.AddAresta(0, 1, 10);
+		g.AddAresta(0, 2, 5);
+		g.AddAresta(1, 2, 2);
+		g.AddAresta(1, 3, 1);
+		g.AddAresta(2, 1, 3);
+		g.AddAresta(2, 3, 9);
+		g.AddAresta(2, 4, 4);
+		g.AddAresta(3, 4, 4);
+		g.AddAresta(4, 3, 6);
+		g.AddAresta(4, 0, 7);
+		g.AddAresta(4, 0, 7);
+		
 
 		//g.ExibirAdj(1);
 		
-		g.Caminho(1);
+		g.Dijkstra(1);
 
 		/*Grafo<Integer, Integer> grafo = new Grafo<Integer, Integer>();
 
