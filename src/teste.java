@@ -10,24 +10,26 @@ import Estrutura.Grafo;
 public class teste {
 
 	public static void main(String[] args) {
-		/*Grafo<Integer, String> g = new Grafo<Integer, String>();
+		Grafo<Integer, String> g = new Grafo<Integer, String>();
 
-		g.AddVertice(0, "Paulo");
-		g.AddVertice(1, "Lucas");
-		g.AddVertice(2, "Vera");
-		g.AddVertice(3, "Vitória");
-		g.AddVertice(4, "Marcos");
+		g.AddVertice(0, "Aracaju");
+		g.AddVertice(1, "Boquim");
+		g.AddVertice(2, "Estancia");
+		g.AddVertice(3, "Socorro");
+		g.AddVertice(4, "Lagarto");
 
-		g.AddAresta(0, 4, 1);
-		g.AddAresta(4, 1, 1);
-		g.AddAresta(4, 2, 1);
+		g.AddAresta(0, 4, 2);
+		g.AddAresta(4, 1, 3);
+		g.AddAresta(4, 2, 5);
 		g.AddAresta(4, 3, 1);
-		g.AddAresta(1, 2, 1);
-		g.AddAresta(2, 3, 1);
+		g.AddAresta(1, 2, 2);
+		g.AddAresta(2, 3, 4);
 
-		g.ExibirAdj(1);*/
+		//g.ExibirAdj(1);
+		
+		g.Caminho(1);
 
-		Grafo<Integer, Integer> grafo = new Grafo<Integer, Integer>();
+		/*Grafo<Integer, Integer> grafo = new Grafo<Integer, Integer>();
 
 		FileInputStream stream;
 		try {
@@ -65,7 +67,7 @@ public class teste {
 		// System.out.print(g.ehCompleto());
 
 		// c.ExibirPorNumAdj();
-		grafo.ExibirAdj(3);
+		grafo.ExibirAdj(3);*/
 
 	}
 

@@ -10,6 +10,10 @@ public class Grafo<K extends Comparable<? super K>, V> {
 	private int nVertice;
 	int Qtd_Max_Vertice = 1500;
 	private Stack<Integer> Pilha;
+	private int nTree;
+	private int NohAtual;
+	private double DistAoNohAtual;
+	private DisEPai CaminhosMaiscurto[];
 
 	public Grafo() {
 		nVertice = 0;
@@ -20,6 +24,7 @@ public class Grafo<K extends Comparable<? super K>, V> {
 			for (int j = 0; j < Qtd_Max_Vertice; j++)
 				MatAdj[i][j] = 0;
 		}
+		CaminhosMaiscurto= new DisEPai[Qtd_Max_Vertice];
 	}
 	
 	public void atualizarV(int index,Object v ){
@@ -137,7 +142,93 @@ public class Grafo<K extends Comparable<? super K>, V> {
 
 		return cont == nVertice;
 	}
+	
+	public void Caminho(int ini) {
+		int starTree=ini;
+		vertice.get(starTree).istree=true;
+		nTree=1;
+		
+		for(int j=0;j<nVertice;j++) {
+			double tempDist= MatAdj[starTree][j];
+			CaminhosMaiscurto[j]= new DisEPai(starTree, (int)tempDist);
+		}
+		
+		while(nTree < nVertice) {
+			int indexMin=getMin();
+			double MinDist=CaminhosMaiscurto[indexMin].distancia;
+			
+			if(MinDist == 9999999) {
+				System.out.println("CAMINHO COMPLETO");
+				break;
+			}
+			else{
+				NohAtual=indexMin;
+				DistAoNohAtual=CaminhosMaiscurto[indexMin].distancia;
+			}
+			
+			vertice.get(NohAtual).istree=true;
+			nTree++;
+			adjus_Path();
+		}
+		ExibaCaminho();
+		nTree=0;
+		for (int i = 0; i < nVertice; i++) {
+			vertice.get(i).istree=false;
+			
+		}
+		
+	}
+	
+	public int getMin() {
+		double minDist=9999999;
+		int indexMin=0;
+		
+		for(int i=1;i<nVertice;i++) {
+			
+			if(!vertice.get(i).istree) {
+				minDist= CaminhosMaiscurto[i].distancia;
+				indexMin=i;
+			}
+			
+		}
+		return indexMin;
+	}
 
+	public void adjus_Path() {
+		int coluna =1;
+		while(coluna < nVertice )
+		{
+			if(vertice.get(coluna).istree) 
+			{
+				coluna++;
+				continue;
+			}
+			double disAtual = MatAdj[NohAtual][coluna];
+			double disInicio= DistAoNohAtual+disAtual;
+			double sCaminhoDis= CaminhosMaiscurto[coluna].distancia;
+			
+			if(disInicio<sCaminhoDis) {
+				CaminhosMaiscurto[coluna].NohPai=NohAtual;
+				CaminhosMaiscurto[coluna].distancia=disInicio;
+			}
+			coluna++;
+		}
+	}
+	
+	public void ExibaCaminho(){
+		for (int i = 0; i <nVertice; i++) {
+			System.out.println(vertice.get(i).val +" ");
+			if(CaminhosMaiscurto[i].distancia==99999) {
+				System.out.print("Inicio");
+			}
+			else {
+				System.out.print(CaminhosMaiscurto[i].distancia);
+			
+				System.out.println("("+ vertice.get(CaminhosMaiscurto[i].NohPai).val+")");
+			}
+			System.out.println("");
+		}
+	}
 	public double[][] getMatAdj() {
 		return MatAdj;
 	}
