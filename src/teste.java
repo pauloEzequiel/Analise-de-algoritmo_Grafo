@@ -31,7 +31,7 @@ public class teste {
 		g.AddVertice(2, "x");
 		g.AddVertice(3, "v");
 		g.AddVertice(4, "y");
-		
+	//Distancia	
 		g.AddAresta(0, 1, 10);
 		g.AddAresta(0, 2, 5);
 		g.AddAresta(1, 2, 2);
@@ -46,7 +46,7 @@ public class teste {
 
 		//g.ExibirAdj(1);
 		
-		g.Dijkstra(0);
+		g.Dijkstra(1,4);
 
 		/*Grafo<Integer, Integer> grafo = new Grafo<Integer, Integer>();
 

@@ -11,6 +11,7 @@ public class Grafo<K extends Comparable<? super K>, V> {
 	private int nVertice;
 	int Qtd_Max_Vertice = 1500;
 	private Stack<Integer> Pilha;
+	
 	private int nTree;
 	private int NohAtual;
 	private tabelaS path[];
@@ -141,7 +142,7 @@ public class Grafo<K extends Comparable<? super K>, V> {
 		return cont == nVertice;
 	}
 
-	public void Dijkstra(int inicio) {
+	public void Dijkstra(int inicio,int destino) {
 		int start = inicio;
 		nTree = 1;
 		path = new tabelaS[nVertice];
@@ -177,14 +178,20 @@ public class Grafo<K extends Comparable<? super K>, V> {
 		nTree = 0;
 		for (int i = 0; i < path.length; i++) {
 			System.out.println(path[i].toString());
-
 		}
+		MostrarCaminho(inicio,destino);
 	}
 	
-	public void MostrarCaminho() {
-		for (int i = 0; i < path.length; i++) {
-			
+	private void MostrarCaminho(int inicio ,int Destino) {
+		 Stack<Integer> CaminhoMinimo= new Stack<>();
+		while(path[Destino].getDist()>1) {
+			CaminhoMinimo.push(path[Destino].getV());
+			Destino=path[Destino].getPath();
 		}
+		CaminhoMinimo.push(inicio);
+		
+		while(!CaminhoMinimo.empty())
+			System.out.print(CaminhoMinimo.pop()+" ");
 	}
 
 	private int getMenorDist() {
