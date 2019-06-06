@@ -38,16 +38,15 @@ public class teste {
 		g.AddAresta(1, 3, 1);
 		g.AddAresta(2, 1, 3);
 		g.AddAresta(2, 3, 9);
-		g.AddAresta(2, 4, 4);
+		g.AddAresta(2, 4, 2);
 		g.AddAresta(3, 4, 4);
 		g.AddAresta(4, 3, 6);
-		g.AddAresta(4, 0, 7);
 		g.AddAresta(4, 0, 7);
 		
 
 		//g.ExibirAdj(1);
 		
-		g.Dijkstra(1);
+		g.Dijkstra(0);
 
 		/*Grafo<Integer, Integer> grafo = new Grafo<Integer, Integer>();
 
